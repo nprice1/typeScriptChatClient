@@ -7,7 +7,8 @@ used with the companion project [typeScriptChatServer](https://github.com/nprice
 
 1. Clone this repository and the [typeScriptChatServer](https://github.com/nprice1/typeScriptChatServer) repository.
 2. Run `npm install` then run `npm run build`.
-3. Run `npm link`, then go to the typeScriptChatServer repo and run `npm link type-script-server`.
+3. Go to the typeScriptChatServer project directory and run `npm link`. Then go back
+to the typeScriptChatClient project directory and run `npm link type-script-server`.
 4. Start your typeScriptChatServer (run `npm start` in the project directory).
 5. Run `npm run watch`.  
 
