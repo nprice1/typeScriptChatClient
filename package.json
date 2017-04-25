@@ -1,0 +1,31 @@
+{
+  "name": "type-script-client",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "webpack-dev-server --compress --history-api-fallback --progress --host 0.0.0.0 --port 3005",
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/react": "^15.0.22",
+    "@types/react-dom": "^15.5.0",
+    "@types/react-redux": "^4.4.39",
+    "@types/redux": "^3.6.0",
+    "@types/ws": "0.0.40",
+    "hapi": "^16.1.1",
+    "inert": "^4.2.0",
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4",
+    "react-redux": "^5.0.4",
+    "redux": "^3.6.0",
+    "ts-loader": "^2.0.3",
+    "typescript": "^2.2.2",
+    "webpack": "^2.4.1",
+    "webpack-dev-server": "^2.4.4",
+    "ws": "^2.3.1"
+  }
+}
