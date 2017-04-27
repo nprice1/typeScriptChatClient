@@ -4,7 +4,6 @@ import { createStore, compose, Reducer } from 'redux';
 import { Provider } from 'react-redux';
 import { Action, addMessageAction } from './actions';
 import { addMessage } from './reducers/addMessage';
-import { sendMessage } from './reducers/sendMessage';
 import { addUser } from './reducers/addUser';
 import { App } from './components/App';
 
@@ -19,7 +18,7 @@ function combineReducers(...reducers: Reducer<ChatState>[]) {
   }
 }
 
-let store = createStore(combineReducers(addMessage, sendMessage, addUser), undefined, (window as any).__REDUX_DEVTOOLS_EXTENSION__ && (window as any).__REDUX_DEVTOOLS_EXTENSION__());
+let store = createStore(combineReducers(addMessage, addUser), undefined, (window as any).__REDUX_DEVTOOLS_EXTENSION__ && (window as any).__REDUX_DEVTOOLS_EXTENSION__());
 
 // Listen for messages from the server
 socket.onmessage = (message: MessageEvent) => {

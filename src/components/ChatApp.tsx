@@ -3,7 +3,6 @@ import * as redux from 'redux';
 import { connect } from 'react-redux';
 
 import { Message as MessageModel, UserMessage } from 'type-script-server/src/models';
-import { sendMessageAction } from '../actions';
 import { ChatState } from '../state';
 
 import { Messages } from './Messages';
@@ -13,11 +12,7 @@ const mapStateToProps = (state: ChatState, ownProps: OwnProps): ConnectedState =
   messages: state.messages
 });
 
-const mapDispatchToProps = (dispatch: redux.Dispatch<ChatState>): ConnectedDispatch => ({
-  sendMessage: (message: MessageModel, socket: WebSocket) => {
-    dispatch(sendMessageAction(message, socket));
-  }
-});
+const mapDispatchToProps = (dispatch: redux.Dispatch<ChatState>): ConnectedDispatch => ({});
 
 interface OwnProps {
   socket: WebSocket,
@@ -29,7 +24,6 @@ interface ConnectedState {
 }
 
 interface ConnectedDispatch {
-  sendMessage: (message: MessageModel, socket: WebSocket) => void
 }
 
 interface OwnState {
@@ -38,12 +32,11 @@ interface OwnState {
 export class ChatAppComponent extends React.Component<ConnectedState & ConnectedDispatch & OwnProps, OwnState> {
 
   sendHandler = (message: string) => {
-    const messageObject: Object = {
+    const messageObject: MessageModel = {
       name: this.props.username,
       message: message
     }
-    const newMessage: MessageModel = new UserMessage(JSON.stringify(messageObject));
-    this.props.sendMessage(newMessage, this.props.socket);
+    this.props.socket.send(JSON.stringify(messageObject));
   }
 
   render() {

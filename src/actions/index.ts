@@ -4,10 +4,6 @@ export type Action = {
   type: 'ADD_MESSAGE',
   message: MessageModel
 } | {
-  type: 'SEND_MESSAGE',
-  message: MessageModel,
-  socket: WebSocket
-} | {
   type: 'ADD_USER',
   username: string,
   socket: WebSocket
@@ -16,12 +12,6 @@ export type Action = {
 export const addMessageAction = (message: MessageModel): Action => ({
   type: 'ADD_MESSAGE',
   message
-});
-
-export const sendMessageAction = (message: MessageModel, socket: WebSocket): Action => ({
-  type: 'SEND_MESSAGE',
-  message,
-  socket
 });
 
 export const addUserAction = (username: string, socket: WebSocket): Action => ({
