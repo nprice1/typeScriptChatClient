@@ -2,7 +2,7 @@ import * as React from 'react';
 import * as redux from 'redux';
 import { connect } from 'react-redux';
 
-import { UserMessage } from 'type-script-server/src/models';
+import { Message as MessageModel, UserMessage } from 'type-script-server/src/models';
 import { sendMessageAction } from '../actions';
 import { ChatState } from '../state';
 
@@ -14,7 +14,7 @@ const mapStateToProps = (state: ChatState, ownProps: OwnProps): ConnectedState =
 });
 
 const mapDispatchToProps = (dispatch: redux.Dispatch<ChatState>): ConnectedDispatch => ({
-  sendMessage: (message: UserMessage, socket: WebSocket) => {
+  sendMessage: (message: MessageModel, socket: WebSocket) => {
     dispatch(sendMessageAction(message, socket));
   }
 });
@@ -25,11 +25,11 @@ interface OwnProps {
 }
 
 interface ConnectedState {
-  messages: UserMessage[]
+  messages: MessageModel[]
 }
 
 interface ConnectedDispatch {
-  sendMessage: (message: UserMessage, socket: WebSocket) => void
+  sendMessage: (message: MessageModel, socket: WebSocket) => void
 }
 
 interface OwnState {
@@ -42,7 +42,7 @@ export class ChatAppComponent extends React.Component<ConnectedState & Connected
       name: this.props.username,
       message: message
     }
-    const newMessage: UserMessage = new UserMessage(JSON.stringify(messageObject));
+    const newMessage: MessageModel = new UserMessage(JSON.stringify(messageObject));
     this.props.sendMessage(newMessage, this.props.socket);
   }
 

@@ -1,12 +1,12 @@
 import * as React from 'react';
 
-import { UserMessage } from 'type-script-server/src/models';
+import { Message as MessageModel } from 'type-script-server/src/models';
 
 import { Message } from './Message';
 
 interface OwnProps {
   username: string,
-  messages: UserMessage[]
+  messages: MessageModel[]
 }
 
 interface OwnState {
@@ -22,7 +22,7 @@ export class Messages extends React.Component<OwnProps, OwnState> {
 
   render() {
     // Loop through all the UserMessages in the state and create a UserMessage component
-    const messages = this.props.messages.map((message: UserMessage, i) => {
+    const messages = this.props.messages.map((message: MessageModel, i) => {
         return (
           <Message
             key={i}

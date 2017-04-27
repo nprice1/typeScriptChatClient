@@ -1,6 +1,6 @@
 import { Action } from '../actions';
 
-import { UserMessage } from 'type-script-server/src/models';
+import { Message as MessageModel, UserMessage } from 'type-script-server/src/models';
 import { ChatState } from '../state';
 
 const initialState: ChatState = {
@@ -10,11 +10,11 @@ const initialState: ChatState = {
 
 export function addUser(state: ChatState = initialState, action: Action): ChatState {
   if (action.type === 'ADD_USER') {
-    const joinedUserMessageObject: Object = {
+    const joinedUserMessageObject: MessageModel = {
       name: action.username,
       message: "joined the chat"
     }
-    const joinedUserMessage = new UserMessage(JSON.stringify(joinedUserMessageObject));
+    const joinedUserMessage: MessageModel = new UserMessage(JSON.stringify(joinedUserMessageObject));
     action.socket.send(JSON.stringify(joinedUserMessage));
     return {
       messages: state.messages,
