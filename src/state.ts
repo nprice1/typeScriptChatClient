@@ -1,4 +1,4 @@
-import { Message as MessageModel } from 'type-script-server/src/models';
+import { Message as MessageModel } from 'type-script-server/src/index';
 
 export interface ChatState {
   messages: MessageModel[],

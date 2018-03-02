@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { Message as MessageModel } from 'type-script-server/src/models';
+import { Message as MessageModel } from 'type-script-server/src/index';
 
 import { Message } from './Message';
 

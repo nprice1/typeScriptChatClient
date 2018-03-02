@@ -1,6 +1,7 @@
 import { Action } from '../actions';
 
-import { Message as MessageModel, UserMessage } from 'type-script-server/src/models';
+import { Message as MessageModel } from 'type-script-server/src/index';
+import { UserMessage } from '../model/UserMessage';
 import { ChatState } from '../state';
 
 const initialState: ChatState = {

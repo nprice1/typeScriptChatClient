@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "watch": "webpack-dev-server --compress --history-api-fallback --progress --host 0.0.0.0 --port 3005",
-    "start": "node server.js"
+    "build": "webpack",
+    "watch": "webpack-dev-server --compress --history-api-fallback --progress --host 0.0.0.0 --port 3005"
   },
   "author": "",
   "license": "ISC",
@@ -16,6 +16,7 @@
     "@types/react-redux": "^4.4.39",
     "@types/redux": "^3.6.0",
     "@types/ws": "0.0.40",
+    "type-script-server": "git+https://github.com/nprice1/typeScriptChatServer.git",
     "hapi": "^16.1.1",
     "inert": "^4.2.0",
     "react": "^15.5.4",

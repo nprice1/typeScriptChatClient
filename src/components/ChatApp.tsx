@@ -2,7 +2,8 @@ import * as React from 'react';
 import * as redux from 'redux';
 import { connect } from 'react-redux';
 
-import { Message as MessageModel, UserMessage } from 'type-script-server/src/models';
+import { Message as MessageModel } from 'type-script-server/src/index';
+import { UserMessage } from '../model/UserMessage';
 import { ChatState } from '../state';
 
 import { Messages } from './Messages';

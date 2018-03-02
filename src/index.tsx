@@ -7,7 +7,7 @@ import { addMessage } from './reducers/addMessage';
 import { addUser } from './reducers/addUser';
 import { App } from './components/App';
 
-import { UserMessage } from 'type-script-server/src/models';
+import { UserMessage } from './model/UserMessage';
 import { ChatState } from './state';
 
 const socket: WebSocket = new WebSocket("ws://localhost:3000");
