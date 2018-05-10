@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import { Message as MessageModel } from 'type-script-server/src/index';
 import { UserMessage } from '../model/UserMessage';
 import { ChatState } from '../state';
+import { Action } from '../actions';
 
 import { Messages } from './Messages';
 import { ChatInput } from './ChatInput';
@@ -13,7 +14,7 @@ const mapStateToProps = (state: ChatState, ownProps: OwnProps): ConnectedState =
   messages: state.messages
 });
 
-const mapDispatchToProps = (dispatch: redux.Dispatch<ChatState>): ConnectedDispatch => ({});
+const mapDispatchToProps = (dispatch: redux.Dispatch<Action>): ConnectedDispatch => ({});
 
 interface OwnProps {
   socket: WebSocket,

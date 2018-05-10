@@ -2,14 +2,14 @@ import * as React from 'react';
 import * as redux from 'redux';
 import { connect } from 'react-redux';
 
-import { addUserAction } from '../actions';
+import { Action, addUserAction } from '../actions';
 import { ChatState } from '../state';
 
 import { ChatApp } from './ChatApp';
 
 const mapStateToProps = (state: ChatState, ownProps: OwnProps): ConnectedState => ({});
 
-const mapDispatchToProps = (dispatch: redux.Dispatch<ChatState>): ConnectedDispatch => ({
+const mapDispatchToProps = (dispatch: redux.Dispatch<Action>): ConnectedDispatch => ({
   addUser: (username: string, socket: WebSocket) => {
     dispatch(addUserAction(username, socket));
   }
